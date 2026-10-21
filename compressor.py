@@ -74,4 +74,10 @@ huff_data = {
 with open("sample.huff", "wb") as f:
     pickle.dump(huff_data, f)
 
-print(os.path.getsize("sample.txt"), os.path.getsize("sample.huff"))
+original = os.path.getsize("sample.txt")
+compressed_size = os.path.getsize("sample.huff")
+saved = (1 - compressed_size / original) * 100
+
+print("Original:  ", original, "bytes")
+print("Compressed:", compressed_size, "bytes")
+print("Saved:     ", round(saved), "%")
